@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0bevw7yaf133"]
+
+[ext_resource type="Texture2D" uid="uid://cecx8n7dsb2d4" path="res://round_outline.png" id="1_hookf"]
+[ext_resource type="Script" uid="uid://dsr3obrpspgp6" path="res://follower.gd" id="1_m6lms"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6lms"]
+atlas = ExtResource("1_hookf")
+region = Rect2(334, 950, 285, 320)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hookf"]
+radius = 72.0
+
+[node name="Follower" type="RigidBody2D"]
+script = ExtResource("1_m6lms")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_m6lms")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_layers = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_hookf")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8enlf1unw2ty"]
+
+[ext_resource type="Texture2D" uid="uid://cecx8n7dsb2d4" path="res://round_outline.png" id="1_4flbx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6lms"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 950, 332, 290)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hookf"]
+radius = 68.1175
+
+[node name="Player" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_m6lms")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hookf")
