@@ -22,6 +22,10 @@ This plan is for the follower to path around the walls.
 
 ### 1. NavigationRegion2D and NavigationObstacle
 
+```sh
+git checkout -b tag/nav-obstacle 1.navigation-obstacle
+```
+
 - The main scene contains a NavigationRegion2D. This looks to be working.
 - The wall scene is a NavigationObstacle
 
