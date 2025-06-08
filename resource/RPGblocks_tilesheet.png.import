@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cecx8n7dsb2d4"
-path="res://.godot/imported/round_outline.png-3eab99218ac41a93bc70ed67eefcaef0.ctex"
+uid="uid://bjo0frlvjru8f"
+path="res://.godot/imported/RPGblocks_tilesheet.png-a85e292bede4d53c85e6310144636739.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://round_outline.png"
-dest_files=["res://.godot/imported/round_outline.png-3eab99218ac41a93bc70ed67eefcaef0.ctex"]
+source_file="res://resource/RPGblocks_tilesheet.png"
+dest_files=["res://.godot/imported/RPGblocks_tilesheet.png-a85e292bede4d53c85e6310144636739.ctex"]
 
 [params]
 
