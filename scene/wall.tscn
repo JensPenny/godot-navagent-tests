@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhl113rp4shuy"]
 
-[ext_resource type="Texture2D" uid="uid://bjo0frlvjru8f" path="res://RPGblocks_tilesheet.png" id="1_xxgf6"]
-[ext_resource type="Script" uid="uid://cyoo2ltb62r7a" path="res://wall.gd" id="1_y4f30"]
+[ext_resource type="Texture2D" uid="uid://bjo0frlvjru8f" path="res://resource/RPGblocks_tilesheet.png" id="1_xxgf6"]
+[ext_resource type="Script" uid="uid://cyoo2ltb62r7a" path="res://script/wall.gd" id="1_y4f30"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iuee5"]
 atlas = ExtResource("1_xxgf6")
@@ -13,6 +13,7 @@ script = ExtResource("1_y4f30")
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 vertices = PackedVector2Array(-60, -69, -60, 68, 59, 69, 60, -67)
 affect_navigation_mesh = true
+carve_navigation_mesh = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_iuee5")

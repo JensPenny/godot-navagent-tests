@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://di6r467n54fhn"]
+[gd_scene load_steps=6 format=3 uid="uid://di6r467n54fhn"]
 
 [ext_resource type="PackedScene" uid="uid://b0bevw7yaf133" path="res://scene/follower.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b8enlf1unw2ty" path="res://scene/player.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://bhl113rp4shuy" path="res://scene/wall.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://cvg2b5a8btxn4" path="res://script/wallmanager.gd" id="4_brvut"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_brvut"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0xm2m"]
 vertices = PackedVector2Array(1.52344, 18.9609, 1146.04, 15.0312, 906.172, 227.859, 656.078, 201.531, 1148.95, 686.047, 718.578, 488.758, 436.547, 437.633, -31.4922, 692.93, 440.594, 449.039)
@@ -12,13 +14,8 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-8, 9, 1156, 5, 1159, 6
 [node name="Main" type="Node2D"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+material = SubResource("ShaderMaterial_brvut")
 navigation_polygon = SubResource("NavigationPolygon_0xm2m")
-
-[node name="Wall" parent="NavigationRegion2D" instance=ExtResource("3_h2yge")]
-position = Vector2(750, 176)
-
-[node name="Wall2" parent="NavigationRegion2D" instance=ExtResource("3_h2yge")]
-position = Vector2(750, 67)
 
 [node name="Follower" parent="NavigationRegion2D" node_paths=PackedStringArray("target") instance=ExtResource("1_0xm2m")]
 position = Vector2(984, 490)
@@ -26,3 +23,7 @@ target = NodePath("../Player")
 
 [node name="Player" parent="NavigationRegion2D" instance=ExtResource("2_h2yge")]
 position = Vector2(379, 247)
+
+[node name="Wall_Manager" type="Node2D" parent="." node_paths=PackedStringArray("nav_region")]
+script = ExtResource("4_brvut")
+nav_region = NodePath("../NavigationRegion2D")

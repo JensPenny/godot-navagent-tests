@@ -34,6 +34,9 @@ func _physics_process(delta: float) -> void:
 	# global_position.move_toward(next_position, movement_delta)
 	var new_velocity = global_position.direction_to(next_position) * speed
 
+	#todo just for testing, this is a bad idea
+	NavigationServer2D.map_force_update(nav_agent.get_navigation_map())
+
 	if nav_agent.avoidance_enabled:
 		nav_agent.velocity = new_velocity
 	else: 

@@ -5,6 +5,5 @@ extends Node2D
 func _ready() -> void:
 	obstacle.avoidance_enabled = true
 	obstacle.avoidance_layers = 1
-	# Make sure the obstacle has a proper radius
-	if obstacle.radius <= 0:
-		obstacle.radius = 100.0
+	# The obstacle uses vertices (polygon shape) defined in the scene
+	# No need to set radius as it's using a custom polygon shape
