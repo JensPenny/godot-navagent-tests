@@ -25,11 +25,15 @@ func _physics_process(delta: float) -> void:
 			rebake_nav = false
 			bake_timer = 0.0
 
+func request_rebake():
+	# Bake the navigation mesh to update pathfinding
+	if nav_region and nav_region.navigation_polygon:
+		rebake_nav = true
 
 func create_wall_at_position(pos: Vector2) -> void:
 	# Load the wall scene
 	var wall_instance = wall_scene.instantiate()
-	
+	wall_instance.set_wall_manager(self)
 	# Set the wall position to the click position
 	wall_instance.global_position = pos
 	
@@ -37,5 +41,4 @@ func create_wall_at_position(pos: Vector2) -> void:
 	nav_region.add_child(wall_instance)
 
 	# Bake the navigation mesh to update pathfinding
-	if nav_region and nav_region.navigation_polygon:
-		rebake_nav = true
+	request_rebake()
